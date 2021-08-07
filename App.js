@@ -4,7 +4,7 @@ import ViewImageScreen from './src/screens/ViewImageScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const App = () => {
-  return <ViewImageScreen />;
+  return <WelcomeScreen />;
 };
 
 export default App;

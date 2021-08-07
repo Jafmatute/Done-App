@@ -1,12 +1,16 @@
 import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import {StyleSheet} from 'react-native';
+import ViewImageScreen from './src/screens/ViewImageScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const App = () => {
-  return (
-    <SafeAreaView>
-      <Text> Done APP </Text>
-    </SafeAreaView>
-  );
+  return <ViewImageScreen />;
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

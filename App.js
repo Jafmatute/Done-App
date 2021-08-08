@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-
 //Screens
 import ViewImageScreen from './src/screens/ViewImageScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
@@ -11,7 +10,7 @@ import AppButton from './src/components/AppButton';
 import Card from './src/components/Card';
 
 const App = () => {
-  return <ListingDetailScreen />;
+  return <ViewImageScreen />;
 };
 
 export default App;

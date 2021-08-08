@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //config styles
 import colors from '../config/colors';
@@ -7,8 +8,12 @@ import colors from '../config/colors';
 const ViewImageScreen = () => {
   return (
     <View style={styles.containerImage}>
-      <View style={[styles.icon, styles.closeIcon]}></View>
-      <View style={[styles.icon, styles.DeleteIcon]}></View>
+      <View style={[styles.icon, styles.closeIcon]}>
+        <Icon name="close" size={35} color="white" />
+      </View>
+      <View style={[styles.icon, styles.DeleteIcon]}>
+        <Icon name="trash" size={35} color="tomato" />
+      </View>
       <Image
         resizeMode="contain"
         style={styles.image}
@@ -28,10 +33,10 @@ const styles = StyleSheet.create({
   closeIcon: {
     top: 30,
     left: 30,
-    backgroundColor: colors.primary,
+    // backgroundColor: colors.primary,
   },
   DeleteIcon: {
-    backgroundColor: colors.secondary,
+    // backgroundColor: colors.secondary,
     top: 30,
     right: 30,
   },

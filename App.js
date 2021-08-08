@@ -8,15 +8,10 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 
 //Components
 import AppText from './src/components/AppText';
+import AppButton from './src/components/AppButton';
 
 const App = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Button name="facebook" backgroundColor="#3b5998">
-        Login with Facebook
-      </Button>
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 };
 
 export default App;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {ImageBackground, Image, View, StyleSheet, Text} from 'react-native';
+import AppButton from '../components/AppButton';
 
 // config styles
 import colors from '../config/colors';
@@ -7,6 +8,7 @@ import colors from '../config/colors';
 const WelcomeScreen = () => {
   return (
     <ImageBackground
+      blurRadius={5}
       style={styles.background}
       source={require('../assets/background.jpg')}>
       <View style={styles.logoContainer}>
@@ -17,8 +19,10 @@ const WelcomeScreen = () => {
         <Text style={styles.txtMessage}>Bienvenido/a</Text>
       </View>
 
-      <View style={[styles.btn, styles.loginBTN]} />
-      <View style={[styles.btn, styles.registerBTN]} />
+      <View style={styles.btnContainer}>
+        <AppButton title="Inicio de Sesión" />
+        <AppButton title="Registro" color="secondary" />
+      </View>
     </ImageBackground>
   );
 };
@@ -31,12 +35,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  btn: {
+  btnContainer: {
+    padding: 20,
     width: '100%',
-    height: 70,
-  },
-  loginBTN: {
-    backgroundColor: colors.primary,
   },
   logoIMG: {
     width: 100,
@@ -47,12 +48,10 @@ const styles = StyleSheet.create({
     top: 40,
     alignItems: 'center',
   },
-  registerBTN: {
-    backgroundColor: colors.secondary,
-  },
   txtMessage: {
     color: 'red',
-    top: 10,
-    fontSize: 20,
+    paddingVertical: 20,
+    fontSize: 25,
+    fontWeight: '600',
   },
 });

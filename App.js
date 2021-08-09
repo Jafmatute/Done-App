@@ -10,9 +10,19 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 import AppText from './src/components/AppText';
 import AppButton from './src/components/AppButton';
 import Card from './src/components/Card';
+import IconApp from './src/components/IconApp';
+import Screen from './src/components/Screen';
+import ListItem from './src/components/ListItem';
 
 const App = () => {
-  return <MessagesScreen />;
+  return (
+    <Screen>
+      <ListItem
+        title="Mi titulo"
+        ImageComponent={<IconApp name="envelope-square" />}
+      />
+    </Screen>
+  );
 };
 
 export default App;

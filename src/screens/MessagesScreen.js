@@ -1,22 +1,23 @@
 import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 
 import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import ListItemSeparator from '../components/ListItemSeparator';
+import ListItemDeleteActions from '../components/ListItemDeleteActions';
 
 const MessagesScreen = () => {
   const messages = [
     {
       id: 1,
-      title: 'T1',
-      description: 'D1',
+      title: 'Liliana Casas',
+      description: 'No me llegó la notificación',
       image: require('../assets/user.jpeg'),
     },
     {
       id: 2,
-      title: 'T2',
-      description: 'D3',
+      title: 'Willian Hamid',
+      description: 'Gracias, documentos recibidos...',
       image: require('../assets/user.jpeg'),
     },
   ];
@@ -30,6 +31,8 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={() => console.log(`Mensaje seleccionado: ${item.id}`)}
+            renderRightActions={ListItemDeleteActions}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}

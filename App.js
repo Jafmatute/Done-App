@@ -5,6 +5,7 @@ import MessagesScreen from './src/screens/MessagesScreen';
 import ListingDetailScreen from './src/screens/ListingDetailScreen';
 import ViewImageScreen from './src/screens/ViewImageScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
+import ListingScreen from './src/screens/ListingScreen';
 
 //Components
 import AppText from './src/components/AppText';
@@ -13,16 +14,10 @@ import Card from './src/components/Card';
 import IconApp from './src/components/IconApp';
 import Screen from './src/components/Screen';
 import ListItem from './src/components/ListItem';
+import AccountScreen from './src/screens/AccountScreen';
 
 const App = () => {
-  return (
-    <Screen>
-      <ListItem
-        title="Mi titulo"
-        ImageComponent={<IconApp name="envelope-square" />}
-      />
-    </Screen>
-  );
+  return <ListingScreen />;
 };
 
 export default App;

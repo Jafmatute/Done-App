@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {
   Button,
+  FlatList,
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -12,8 +13,15 @@ import AppText from './AppText';
 import Screen from './Screen';
 
 import defaultStyles from '../config/styles';
+import PickerItem from './PickerItem';
 
-const AppPicker = ({icon, placheholder, ...otherProps}) => {
+const AppPicker = ({
+  icon,
+  items,
+  onSelectedItem,
+  placheholder,
+  selectedItem,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -22,7 +30,10 @@ const AppPicker = ({icon, placheholder, ...otherProps}) => {
           {icon && (
             <Icon name={icon} size={20} color={defaultStyles.colors.medium} />
           )}
-          <AppText style={styles.text}> {placheholder} </AppText>
+          <AppText style={styles.text}>
+            {' '}
+            {selectedItem ? selectedItem.label : placheholder}
+          </AppText>
           <Icon
             name="chevron-down"
             size={20}
@@ -33,6 +44,19 @@ const AppPicker = ({icon, placheholder, ...otherProps}) => {
       {modalVisible && (
         <Screen>
           <Modal visible={modalVisible} animationType="slide">
+            <FlatList
+              data={items}
+              keyExtractor={item => item.value.toString()}
+              renderItem={({item}) => (
+                <PickerItem
+                  label={item.label}
+                  onPress={() => {
+                    setModalVisible(false);
+                    onSelectedItem(item);
+                  }}
+                />
+              )}
+            />
             <Button title="Close" onPress={() => setModalVisible(false)} />
           </Modal>
         </Screen>

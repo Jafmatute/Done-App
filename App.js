@@ -4,11 +4,13 @@ import React from 'react';
 //Components
 import Screen from './src/components/Screen';
 import AppTextInput from './src/components/AppTextInput';
+import AppPicker from './src/components/AppPicker';
 
 const App = () => {
   return (
     <Screen>
-      <AppTextInput placeholder="Nombre de usuario" icon="email" />
+      <AppPicker icon="apps" placheholder="Categoria" />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 };

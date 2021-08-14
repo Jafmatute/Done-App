@@ -4,11 +4,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import AppFormField from '../../components/AppFormField';
-import AppButton from '../../components/AppButton';
+import {AppForm, AppFormField, SubmitButton} from '../../components/forms';
 import AppText from '../../components/AppText';
 import Screen from '../../components/Screen';
-import SubmitButton from '../../components/SubmitButton';
 
 import colors from '../../config/colors';
 
@@ -33,45 +31,41 @@ const LoginScreen = () => {
         <Image style={styles.logo} source={logo} />
         <AppText style={styles.text}>React Native </AppText>
       </View>
-      <Formik
+      <AppForm
         initialValues={{email: '', password: ''}}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}>
-        {() => (
-          <>
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="email"
-              name="email"
-              keyboardType="email-address"
-              placeholder="Correo electronico"
-              textContentType="password"
-            />
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          name="email"
+          keyboardType="email-address"
+          placeholder="Correo electronico"
+          textContentType="password"
+        />
 
-            <View>
-              <AppFormField
-                autoCapitalize="none"
-                autoCorrect={false}
-                icon="lock"
-                name="password"
-                placeholder="Contraseña"
-                secureTextEntry={eyePassword ? true : false}
-                textContentType="password"
-              />
-              <Icon
-                onPress={() => setEyePassword(!eyePassword)}
-                style={styles.iconPass}
-                name={eyePassword ? 'eye-off' : 'eye'}
-                size={25}
-                color={eyePassword ? colors.medium : colors.secondary}
-              />
-            </View>
+        <View>
+          <AppFormField
+            autoCapitalize="none"
+            autoCorrect={false}
+            icon="lock"
+            name="password"
+            placeholder="Contraseña"
+            secureTextEntry={eyePassword ? true : false}
+            textContentType="password"
+          />
+          <Icon
+            onPress={() => setEyePassword(!eyePassword)}
+            style={styles.iconPass}
+            name={eyePassword ? 'eye-off' : 'eye'}
+            size={25}
+            color={eyePassword ? colors.medium : colors.secondary}
+          />
+        </View>
 
-            <SubmitButton title="Inicio de Sesión" />
-          </>
-        )}
-      </Formik>
+        <SubmitButton title="Inicio de Sesión" />
+      </AppForm>
     </Screen>
   );
 };

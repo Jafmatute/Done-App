@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import AppTextInput from '../../components/AppTextInput';
+import AppFormField from '../../components/AppFormField';
 import AppButton from '../../components/AppButton';
 import AppText from '../../components/AppText';
-import ErrorMessage from '../../components/ErrorMessage';
 import Screen from '../../components/Screen';
+import SubmitButton from '../../components/SubmitButton';
 
 import colors from '../../config/colors';
 
@@ -37,24 +37,24 @@ const LoginScreen = () => {
         initialValues={{email: '', password: ''}}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}>
-        {({handleChange, handleSubmit, errors}) => (
+        {() => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="email"
-              onChangeText={handleChange('email')}
+              name="email"
               keyboardType="email-address"
               placeholder="Correo electronico"
               textContentType="password"
             />
-            <ErrorMessage error={errors.email} />
+
             <View>
-              <AppTextInput
+              <AppFormField
                 autoCapitalize="none"
                 autoCorrect={false}
                 icon="lock"
-                onChangeText={handleChange('password')}
+                name="password"
                 placeholder="Contraseña"
                 secureTextEntry={eyePassword ? true : false}
                 textContentType="password"
@@ -66,10 +66,9 @@ const LoginScreen = () => {
                 size={25}
                 color={eyePassword ? colors.medium : colors.secondary}
               />
-              <ErrorMessage error={errors.password} />
             </View>
 
-            <AppButton title="Inicio de Sesión" onPress={handleSubmit} />
+            <SubmitButton title="Inicio de Sesión" />
           </>
         )}
       </Formik>

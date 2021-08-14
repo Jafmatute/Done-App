@@ -14,6 +14,7 @@ import Screen from './Screen';
 
 import defaultStyles from '../config/styles';
 import PickerItem from './PickerItem';
+import colors from '../config/colors';
 
 const AppPicker = ({
   icon,
@@ -30,10 +31,11 @@ const AppPicker = ({
           {icon && (
             <Icon name={icon} size={20} color={defaultStyles.colors.medium} />
           )}
-          <AppText style={styles.text}>
-            {' '}
-            {selectedItem ? selectedItem.label : placheholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placheholder}>{placheholder}</AppText>
+          )}
           <Icon
             name="chevron-down"
             size={20}
@@ -75,6 +77,10 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 15,
     marginVertical: 10,
+  },
+  placheholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
   },
   text: {
     flex: 1,

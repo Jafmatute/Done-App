@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import LoginScreen from './src/screens/auth/LoginScreen';
-//Screens
-import ListingEditScreen from './src/screens/ListingEditScreen';
+import React from 'react';
+
+import RegisterScreen from './src/screens/auth/RegisterScreen';
 
 function App() {
-  return <ListingEditScreen />;
+  return <RegisterScreen />;
 }
 export default App;

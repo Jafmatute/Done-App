@@ -1,49 +1,44 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {StyleSheet, View} from 'react-native';
 import * as Yup from 'yup';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {AppForm, AppFormField, SubmitButton} from '../../components/forms';
-import AppText from '../../components/AppText';
 import Screen from '../../components/Screen';
-
+import {AppForm, AppFormField, SubmitButton} from '../../components/forms';
 import colors from '../../config/colors';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .required('Ingrese una dirección de correo')
-    .email('Dirección de correo inválida')
-    .label('Email'),
+  name: Yup.string().required('El nombre es requerido').label('Name'),
+  email: Yup.string().required('El email es obligatorio').label('Email'),
   password: Yup.string()
-    .required('Ingrese su contraseña')
-    .min(4, 'Debe ingresar 4 caracteres como mínimo')
+    .required('La contraseña es obligatoria')
+    .min(5, 'Minímo 5 caracteres')
     .label('Password'),
 });
 
-const LoginScreen = () => {
-  const logo = require('../../assets/logo-red.png');
+const RegisterScreen = () => {
   const [eyePassword, setEyePassword] = useState(true);
-
   return (
     <Screen style={styles.container}>
-      <View style={styles.containerLogo}>
-        <Image style={styles.logo} source={logo} />
-        <AppText style={styles.text}>React Native </AppText>
-      </View>
       <AppForm
-        initialValues={{email: '', password: ''}}
+        initialValues={{name: '', email: '', password: ''}}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}>
+        <AppFormField
+          autoCorrect={false}
+          icon="account"
+          name="name"
+          placeholder="Nombre completo"
+        />
         <AppFormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
-          name="email"
           keyboardType="email-address"
-          placeholder="Correo electronico"
-          textContentType="password"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
         />
-
         <View>
           <AppFormField
             autoCapitalize="none"
@@ -62,37 +57,21 @@ const LoginScreen = () => {
             color={eyePassword ? colors.medium : colors.secondary}
           />
         </View>
-
-        <SubmitButton title="Inicio de Sesión" />
+        <SubmitButton title="Register" />
       </AppForm>
     </Screen>
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
-  containerLogo: {
-    alignSelf: 'center',
-    marginTop: 50,
-    marginBottom: 20,
-  },
-  containerIconPass: {
-    justifyContent: 'center',
-  },
   iconPass: {
     position: 'absolute',
     padding: 30,
     right: 0,
-  },
-  logo: {
-    height: 100,
-    width: 100,
-  },
-  text: {
-    fontWeight: 'bold',
   },
 });

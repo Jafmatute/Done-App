@@ -2,15 +2,15 @@ import React from 'react';
 import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import colors from '../config/colors';
+import colors from '../../config/colors';
 
 const ListItemDeleteActions = ({onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-    <View style={styles.container}>
-      <Icon name="trash" size={20} color={colors.white} />
+      <View style={styles.container}>
+        <Icon name="trash" size={20} color={colors.white} />
       </View>
-      </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback>
   );
 };
 

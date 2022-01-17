@@ -1,9 +1,8 @@
 import React from 'react';
 
 import RegisterScreen from './src/screens/auth/RegisterScreen';
-import AccountScreen from './src/screens/AccountScreen';
-
+import ListingEditScreen from './src/screens/ListingEditScreen';
 function App() {
-  return <AccountScreen />;
+  return <ListingEditScreen />;
 }
 export default App;
